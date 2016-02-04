@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings persistenceUnitName="RoadLinkPU" jaxb-support="false" id="_14544644945481" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:ns4="http://nbmodeler.java.net" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:package>Test</jpa:package>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Stop" visibile="true" minimized="false" id="_1454464503497">
+        <jpa:attributes>
+            <jpa:id name="stopCode" attribute-type="String" visibile="true" id="_14544645455449">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Line" visibile="true" minimized="false" id="_1454464507330">
+        <jpa:attributes>
+            <jpa:id name="lineNum" attribute-type="Integer" visibile="true" id="_145446454930310">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:one-to-many name="routes" target-entity="Route" collection-type="java.util.List" connected-entity-id="_1454464794777" visibile="true" id="_145450350833714">
+                <jpa:join-table/>
+            </jpa:one-to-many>
+            <jpa:one-to-many name="buses" target-entity="Bus" collection-type="java.util.List" connected-entity-id="_1454465255083" visibile="true" id="_145455256582616">
+                <jpa:join-table/>
+            </jpa:one-to-many>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Route" visibile="true" minimized="false" id="_1454464794777">
+        <jpa:attributes>
+            <jpa:id name="routeName" attribute-type="String" visibile="true" id="_145446480283627">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:one-to-many name="stopCodes" target-entity="Stop" collection-type="java.util.List" connected-entity-id="_1454464503497" visibile="true" id="_145450343528113">
+                <jpa:join-table/>
+            </jpa:one-to-many>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Schedule" visibile="true" minimized="false" id="_1454465201902">
+        <jpa:attributes>
+            <jpa:id name="scheduleId" attribute-type="Integer" visibile="true" id="_145446531222639">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:basic name="arrTime" attribute-type="double" visibile="true" id="_145450460885121">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:one-to-one name="bus" target-entity="Bus" optional="true" primaryKey="false" connected-entity-id="_1454465255083" visibile="true" id="_145455323017619">
+                <jpa:join-table/>
+            </jpa:one-to-one>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Bus" visibile="true" minimized="false" id="_1454465255083">
+        <jpa:attributes>
+            <jpa:id name="busId" attribute-type="Integer" visibile="true" id="_145446526073337">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:diagram id="_14544644945482">
+        <plane elementRef="_14544644945481" id="_14544644945483_p">
+            <shape elementRef="_1454464503497" id="_1454464503497_gui">
+                <Bounds x="56.0" y="37.0" width="128.0" height="58.0"/>
+            </shape>
+            <shape elementRef="_1454464507330" id="_1454464507330_gui">
+                <Bounds x="474.0" y="95.0" width="128.0" height="113.0"/>
+            </shape>
+            <shape elementRef="_1454464794777" id="_1454464794777_gui">
+                <Bounds x="263.0" y="58.0" width="129.0" height="92.0"/>
+            </shape>
+            <shape elementRef="_1454465201902" id="_1454465201902_gui">
+                <Bounds x="985.0" y="295.0" width="149.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_1454465255083" id="_1454465255083_gui">
+                <Bounds x="774.0" y="295.0" width="128.0" height="58.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>
